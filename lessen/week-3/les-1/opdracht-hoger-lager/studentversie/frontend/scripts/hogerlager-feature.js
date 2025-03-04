@@ -24,7 +24,7 @@ class HogerLagerFeature{
     //#student-start
 
     event.preventDefault();
-    const guess = document.getElementById('guess').value;
+    let guess = document.getElementById('guess').value;
     try {
         const result = await model.getAnswer(guess);
         document.getElementById('answer').innerText = result;
