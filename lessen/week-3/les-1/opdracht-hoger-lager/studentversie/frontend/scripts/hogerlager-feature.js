@@ -7,6 +7,9 @@ class HogerLagerFeature{
         console.log('HogerLagerFeature init');
 
         //#student-start
+
+        this.eventListeners();
+
         //#student-end
 
     }
@@ -19,6 +22,16 @@ class HogerLagerFeature{
     async submitGuess(event){
 
     //#student-start
+
+    event.preventDefault();
+    const guess = document.getElementById('guess').value;
+    try {
+        const result = await model.getAnswer(guess);
+        document.getElementById('answer').innerText = result;
+    } catch (error) {
+        document.getElementById('answer').innerText = error.message;
+    }
+    
     //#student-end
 
     }
